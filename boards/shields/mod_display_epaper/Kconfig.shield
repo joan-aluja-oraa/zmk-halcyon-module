@@ -15,3 +15,22 @@ config SHIELD_MOD_DISPLAY_EPAPER_MOUNTAIN
 config SHIELD_MOD_DISPLAY_EPAPER_CITYSCAPE
     def_bool $(shields_list_contains,mod_display_epaper_cityscape)
     select SHIELD_MOD_DISPLAY_EPAPER
+
+if SHIELD_MOD_DISPLAY_EPAPER
+
+choice HALCYON_EPAPER_ART
+    prompt "e-paper artwork"
+    default HALCYON_EPAPER_ART_DEFAULT
+
+config HALCYON_EPAPER_ART_DEFAULT
+    bool "Default (per-shield image)"
+
+config HALCYON_EPAPER_ART_FRIEREN
+    bool "Frieren close-up"
+
+config HALCYON_EPAPER_ART_HIMMEL
+    bool "Himmel close-up"
+
+endchoice
+
+endif

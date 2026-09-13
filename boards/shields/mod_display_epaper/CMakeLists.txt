@@ -4,6 +4,7 @@ if(CONFIG_ZMK_DISPLAY AND CONFIG_HALCYON_EPAPER_WIDGET_STATUS)
   zephyr_library_sources(widgets/bolt.c)
   zephyr_library_sources(widgets/util.c)
   zephyr_library_sources(widgets/art.c)
+  zephyr_library_sources(widgets/art_custom.c)
 
   if(NOT CONFIG_ZMK_SPLIT OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
     zephyr_library_sources(widgets/status.c)

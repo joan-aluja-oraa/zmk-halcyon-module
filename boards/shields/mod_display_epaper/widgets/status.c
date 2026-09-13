@@ -24,13 +24,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/endpoints.h>
 #include <zmk/keymap.h>
 
-#if IS_ENABLED(CONFIG_SHIELD_MOD_DISPLAY_EPAPER_FOREST)
-LV_IMG_DECLARE(Forest);
-#elif IS_ENABLED(CONFIG_SHIELD_MOD_DISPLAY_EPAPER_MOUNTAIN)
-LV_IMG_DECLARE(Mountain);
-#elif IS_ENABLED(CONFIG_SHIELD_MOD_DISPLAY_EPAPER_CITYSCAPE)
-LV_IMG_DECLARE(Cityscape);
-#endif
+#include "art.h"
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
@@ -290,13 +284,7 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
 
     lv_obj_t *art = lv_img_create(widget->obj);
 
-#if IS_ENABLED(CONFIG_SHIELD_MOD_DISPLAY_EPAPER_FOREST)
-    lv_image_set_src(art, &Forest);
-#elif IS_ENABLED(CONFIG_SHIELD_MOD_DISPLAY_EPAPER_MOUNTAIN)
-    lv_image_set_src(art, &Mountain);
-#elif IS_ENABLED(CONFIG_SHIELD_MOD_DISPLAY_EPAPER_CITYSCAPE)
-    lv_image_set_src(art, &Cityscape);
-#endif
+    lv_image_set_src(art, HALCYON_EPAPER_ART);
 
     lv_obj_align(art, LV_ALIGN_TOP_LEFT, 74, 0);
 
